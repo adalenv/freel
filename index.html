@@ -15,6 +15,8 @@
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
 		<![endif]-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
   </head>
   <body>
     <div class="page-loader">
@@ -36,7 +38,7 @@
               <div class="rd-navbar-nav-wrap">
                 <ul class="rd-navbar-nav">
                   <li><a href="index.html#services">Services</a></li>
-                  <li><a href="index.html#products">Products</a></li>
+                  <li><a href="index.html#news">News</a></li>
                   <li><a href="index.html#about-us">About Us</a></li>
                   <li><a href="index.html#testimonials">Testimonials</a></li>
                 </ul>
@@ -135,6 +137,11 @@
           <div class="range range-custom-bordered-modern spacing-30">
             <div class="cell-sm-6 cell-md-4">
               <article class="box-minimal box-minimal-modern unit unit-xs-horizontal unit-spacing-sm">
+                <div class="unit-left">
+                  <div class="box-minimal-icon">
+                    <i style="color: #5acea4" class="fas fa-euro-sign"></i>
+                  </div>
+                </div>
                 <div class="unit-body">
                   <h5 class="box-minimal-title"><a href="index.html#">Automatic Payout</a></h5>
                   <div class="box-minimal-text">Get your bonus instantly after trading required volume.</div>
@@ -143,6 +150,11 @@
             </div>
             <div class="cell-sm-6 cell-md-4">
               <article class="box-minimal box-minimal-modern unit unit-xs-horizontal unit-spacing-sm">
+                <div class="unit-left">
+                  <div class="box-minimal-icon">
+                    <i style="color: #5acea4" class="fas fa-chart-line"></i>
+                  </div>
+                </div>
                 <div class="unit-body">
                   <h5 class="box-minimal-title"><a href="index.html#">Trading Signals</a></h5>
                   <div class="box-minimal-text">Receive trading signals by Trading Central.</div>
@@ -151,6 +163,11 @@
             </div>
             <div class="cell-sm-6 cell-md-4">
               <article class="box-minimal box-minimal-modern unit unit-xs-horizontal unit-spacing-sm">
+                <div class="unit-left">
+                  <div class="box-minimal-icon">
+                    <i style="color: #5acea4" class="fas fa-circle"></i>
+                  </div>
+                </div>
                 <div class="unit-body">
                   <h5 class="box-minimal-title"><a href="index.html#">No commission</a></h5>
                   <div class="box-minimal-text">No commission on MT4 & MT5.</div>
@@ -159,6 +176,11 @@
             </div>
             <div class="cell-sm-6 cell-md-4">
               <article class="box-minimal box-minimal-modern unit unit-xs-horizontal unit-spacing-sm">
+                <div class="unit-left">
+                  <div class="box-minimal-icon">
+                    <i style="color: #5acea4" class="fas fa-user-plus"></i>
+                  </div>
+                </div>
                 <div class="unit-body">
                   <h5 class="box-minimal-title"><a href="index.html#">Welcome Bouns</a></h5>
                   <div class="box-minimal-text">100% CREDIT BONUS</div>
@@ -167,6 +189,11 @@
             </div>
             <div class="cell-sm-6 cell-md-4">
               <article class="box-minimal box-minimal-modern unit unit-xs-horizontal unit-spacing-sm">
+                <div class="unit-left">
+                  <div class="box-minimal-icon">
+                    <i style="color: #5acea4" class="fas fa-users"></i>
+                  </div>
+                </div>
                 <div class="unit-body">
                   <h5 class="box-minimal-title"><a href="index.html#">Refer-A-Friend</a></h5>
                   <div class="box-minimal-text">You and your friend can earn up to 50% of his first deposit.</div>
@@ -175,6 +202,11 @@
             </div>
             <div class="cell-sm-6 cell-md-4">
               <article class="box-minimal box-minimal-modern unit unit-xs-horizontal unit-spacing-sm">
+                <div class="unit-left">
+                  <div class="box-minimal-icon">
+                    <i style="color: #5acea4" class="fas fa-question-circle"></i>
+                  </div>
+                </div>
                 <div class="unit-body">
                   <h5 class="box-minimal-title"><a href="index.html#">24/7 Premium Support</a></h5>
                   <div class="box-minimal-text">Our dedicated 24/7 support service helps our customers.</div>
@@ -348,7 +380,7 @@
       </section>
 
       <!-- News & Events-->
-      <section class="section novi-background bg-image section-md bg-gray-light text-center">
+      <section  id='news' class="section novi-background bg-image section-md bg-gray-light text-center">
         <div class="shell">
           <h2>Latest News</h2>
           <div class="range spacing-30">
@@ -476,6 +508,7 @@
     </div>
     <!-- Global Mailform Output-->
     <div class="snackbars" id="form-output-global"></div>
+
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
@@ -485,6 +518,11 @@
   </body>
 </html>
  <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>
+ <style>
+   #ui-to-top{
+        line-height: 2.8;
+   }
+ </style>
 <script type="text/javascript">
   
   // initialize Account Kit with CSRF protection
@@ -541,6 +579,7 @@
       // handle bad parameters
       //console.log(response);
       toastr.error("Please check phone number!");
+      $('[name="phone"]').focus()
     }
   }
 
@@ -552,7 +591,7 @@
       toastr.error("Name not valid!");
       return;
     } else if(!/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test($('[name="phone"]').val())){
-      $('[name="name"]').focus();
+      $('[name="phone"]').focus();
        toastr.error("Please check phone number!");
       return;
     };
@@ -606,14 +645,16 @@
 
 
 
- <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/5b101be410b99c7b36d481fc/default';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/5b101be410b99c7b36d481fc/1cfsoptev';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
 </script>
+<!--End of Tawk.to Script-->
