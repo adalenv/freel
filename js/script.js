@@ -24,7 +24,7 @@
 			bootstrapTabs: $(".tabs"),
 			rdNavbar: $(".rd-navbar"),
 			materialParallax: $(".material-parallax"),
-			rdMailForm: $(".rd-mailform"),
+			//rdMailForm: $(".rd-mailform"),
 			rdInputLabel: $(".form-label"),
 			regula: $("[data-constraints]"),
 			owl: $(".owl-carousel"),
@@ -1030,94 +1030,94 @@
 		 * RD Search
 		 * @description Enables search
 		 */
-		if (plugins.search.length || plugins.searchResults) {
-			var handler = "bat/rd-search.php";
-			var defaultTemplate = '<h5 class="search_title"><a target="_top" href="#{href}" class="search_link">#{title}</a></h5>' +
-				'<p>...#{token}...</p>' +
-				'<p class="match"><em>Terms matched: #{count} - URL: #{href}</em></p>';
-			var defaultFilter = '*.html';
+		// if (plugins.search.length || plugins.searchResults) {
+		// 	var handler = "bat/rd-search.php";
+		// 	var defaultTemplate = '<h5 class="search_title"><a target="_top" href="#{href}" class="search_link">#{title}</a></h5>' +
+		// 		'<p>...#{token}...</p>' +
+		// 		'<p class="match"><em>Terms matched: #{count} - URL: #{href}</em></p>';
+		// 	var defaultFilter = '*.html';
 
-			if (plugins.search.length) {
+		// 	if (plugins.search.length) {
 
-				plugins.search = $('.' + plugins.search[0].className);
+		// 		plugins.search = $('.' + plugins.search[0].className);
 
-				for (i = 0; i < plugins.search.length; i++) {
-					var searchItem = $(plugins.search[i]),
-						options = {
-							element: searchItem,
-							filter: (searchItem.attr('data-search-filter')) ? searchItem.attr('data-search-filter') : defaultFilter,
-							template: (searchItem.attr('data-search-template')) ? searchItem.attr('data-search-template') : defaultTemplate,
-							live: (searchItem.attr('data-search-live')) ? (searchItem.find('.' + searchItem.attr('data-search-live'))) : false,
-							liveCount: (searchItem.attr('data-search-live-count')) ? parseInt(searchItem.attr('data-search-live'), 10) : 4,
-							current: 0, processed: 0, timer: {}
-						};
+		// 		for (i = 0; i < plugins.search.length; i++) {
+		// 			var searchItem = $(plugins.search[i]),
+		// 				options = {
+		// 					element: searchItem,
+		// 					filter: (searchItem.attr('data-search-filter')) ? searchItem.attr('data-search-filter') : defaultFilter,
+		// 					template: (searchItem.attr('data-search-template')) ? searchItem.attr('data-search-template') : defaultTemplate,
+		// 					live: (searchItem.attr('data-search-live')) ? (searchItem.find('.' + searchItem.attr('data-search-live'))) : false,
+		// 					liveCount: (searchItem.attr('data-search-live-count')) ? parseInt(searchItem.attr('data-search-live'), 10) : 4,
+		// 					current: 0, processed: 0, timer: {}
+		// 				};
 
-					if ($('.rd-navbar-search-toggle').length) {
-						var toggle = $('.rd-navbar-search-toggle');
-						toggle.on('click', function () {
-							if (!($(this).hasClass('active'))) {
-								searchItem.find('input').val('').trigger('propertychange');
-							}
-						});
-					}
+		// 			if ($('.rd-navbar-search-toggle').length) {
+		// 				var toggle = $('.rd-navbar-search-toggle');
+		// 				toggle.on('click', function () {
+		// 					if (!($(this).hasClass('active'))) {
+		// 						searchItem.find('input').val('').trigger('propertychange');
+		// 					}
+		// 				});
+		// 			}
 
-					if (options.live) {
-						options.clearHandler = false;
+		// 			if (options.live) {
+		// 				options.clearHandler = false;
 
-						searchItem.find('input').on("keyup input propertychange", $.proxy(function () {
-							var ctx = this;
+		// 				searchItem.find('input').on("keyup input propertychange", $.proxy(function () {
+		// 					var ctx = this;
 
-							this.term = this.element.find('input').val().trim();
-							this.spin = this.element.find('.input-group-addon');
+		// 					this.term = this.element.find('input').val().trim();
+		// 					this.spin = this.element.find('.input-group-addon');
 
-							clearTimeout(ctx.timer);
+		// 					clearTimeout(ctx.timer);
 
-							if (ctx.term.length > 2) {
-								ctx.timer = setTimeout(liveSearch(ctx), 200);
+		// 					if (ctx.term.length > 2) {
+		// 						ctx.timer = setTimeout(liveSearch(ctx), 200);
 
-								if (ctx.clearHandler == false) {
-									ctx.clearHandler = true;
+		// 						if (ctx.clearHandler == false) {
+		// 							ctx.clearHandler = true;
 
-									$("body").on("click", function (e) {
-										if ($(e.toElement).parents('.rd-search').length == 0) {
-											ctx.live.addClass('cleared').html('');
-										}
-									})
-								}
+		// 							$("body").on("click", function (e) {
+		// 								if ($(e.toElement).parents('.rd-search').length == 0) {
+		// 									ctx.live.addClass('cleared').html('');
+		// 								}
+		// 							})
+		// 						}
 
-							} else if (ctx.term.length == 0) {
-								ctx.live.addClass('cleared').html('');
-							}
-						}, options, this));
-					}
+		// 					} else if (ctx.term.length == 0) {
+		// 						ctx.live.addClass('cleared').html('');
+		// 					}
+		// 				}, options, this));
+		// 			}
 
-					searchItem.on('submit', $.proxy(function () {
-						$('<input />').attr('type', 'hidden')
-							.attr('name', "filter")
-							.attr('value', this.filter)
-							.appendTo(this.element);
-						return true;
-					}, options, this))
-				}
-			}
+		// 			searchItem.on('submit', $.proxy(function () {
+		// 				$('<input />').attr('type', 'hidden')
+		// 					.attr('name', "filter")
+		// 					.attr('value', this.filter)
+		// 					.appendTo(this.element);
+		// 				return true;
+		// 			}, options, this))
+		// 		}
+		// 	}
 
-			if (plugins.searchResults.length) {
-				var regExp = /\?.*s=([^&]+)\&filter=([^&]+)/g;
-				var match = regExp.exec(location.search);
+		// 	if (plugins.searchResults.length) {
+		// 		var regExp = /\?.*s=([^&]+)\&filter=([^&]+)/g;
+		// 		var match = regExp.exec(location.search);
 
-				if (match != null) {
-					$.get(handler, {
-						s: decodeURI(match[1]),
-						dataType: "html",
-						filter: match[2],
-						template: defaultTemplate,
-						live: ''
-					}, function (data) {
-						plugins.searchResults.html(data);
-					})
-				}
-			}
-		}
+		// 		if (match != null) {
+		// 			$.get(handler, {
+		// 				s: decodeURI(match[1]),
+		// 				dataType: "html",
+		// 				filter: match[2],
+		// 				template: defaultTemplate,
+		// 				live: ''
+		// 			}, function (data) {
+		// 				plugins.searchResults.html(data);
+		// 			})
+		// 		}
+		// 	}
+		// }
 
 		/**
 		 * Owl carousel
@@ -1209,313 +1209,313 @@
 			attachFormValidator(plugins.regula);
 		}
 
-		// MailChimp Ajax subscription
-		if (plugins.mailchimp.length) {
-			for (i = 0; i < plugins.mailchimp.length; i++) {
-				var $mailchimpItem = $(plugins.mailchimp[i]),
-					$email = $mailchimpItem.find('input[type="email"]');
+		// // MailChimp Ajax subscription
+		// if (plugins.mailchimp.length) {
+		// 	for (i = 0; i < plugins.mailchimp.length; i++) {
+		// 		var $mailchimpItem = $(plugins.mailchimp[i]),
+		// 			$email = $mailchimpItem.find('input[type="email"]');
 
-				// Required by MailChimp
-				$mailchimpItem.attr('novalidate', 'true');
-				$email.attr('name', 'EMAIL');
+		// 		// Required by MailChimp
+		// 		$mailchimpItem.attr('novalidate', 'true');
+		// 		$email.attr('name', 'EMAIL');
 
-				$mailchimpItem.on('submit', $.proxy( function ( $email, event ) {
-					event.preventDefault();
+		// 		$mailchimpItem.on('submit', $.proxy( function ( $email, event ) {
+		// 			event.preventDefault();
 
-					var $this = this;
+		// 			var $this = this;
 
-					var data = {},
-						url = $this.attr('action').replace('/post?', '/post-json?').concat('&c=?'),
-						dataArray = $this.serializeArray(),
-						$output = $("#" + $this.attr("data-form-output"));
+		// 			var data = {},
+		// 				url = $this.attr('action').replace('/post?', '/post-json?').concat('&c=?'),
+		// 				dataArray = $this.serializeArray(),
+		// 				$output = $("#" + $this.attr("data-form-output"));
 
-					for (i = 0; i < dataArray.length; i++) {
-						data[dataArray[i].name] = dataArray[i].value;
-					}
+		// 			for (i = 0; i < dataArray.length; i++) {
+		// 				data[dataArray[i].name] = dataArray[i].value;
+		// 			}
 
-					$.ajax({
-						data: data,
-						url: url,
-						dataType: 'jsonp',
-						error: function (resp, text) {
-							$output.html('Server error: ' + text);
+		// 			$.ajax({
+		// 				data: data,
+		// 				url: url,
+		// 				dataType: 'jsonp',
+		// 				error: function (resp, text) {
+		// 					$output.html('Server error: ' + text);
 
-							setTimeout(function () {
-								$output.removeClass("active");
-							}, 4000);
-						},
-						success: function (resp) {
-							$output.html(resp.msg).addClass('active');
-							$email[0].value = '';
-							var $label = $('[for="'+ $email.attr( 'id' ) +'"]');
-							if ( $label.length ) $label.removeClass( 'focus not-empty' );
+		// 					setTimeout(function () {
+		// 						$output.removeClass("active");
+		// 					}, 4000);
+		// 				},
+		// 				success: function (resp) {
+		// 					$output.html(resp.msg).addClass('active');
+		// 					$email[0].value = '';
+		// 					var $label = $('[for="'+ $email.attr( 'id' ) +'"]');
+		// 					if ( $label.length ) $label.removeClass( 'focus not-empty' );
 
-							setTimeout(function () {
-								$output.removeClass("active");
-							}, 6000);
-						},
-						beforeSend: function (data) {
-							var isNoviBuilder = window.xMode;
+		// 					setTimeout(function () {
+		// 						$output.removeClass("active");
+		// 					}, 6000);
+		// 				},
+		// 				beforeSend: function (data) {
+		// 					var isNoviBuilder = window.xMode;
 
-							var isValidated = (function () {
-								var results, errors = 0;
-								var elements = $this.find('[data-constraints]');
-								var captcha = null;
-								if (elements.length) {
-									for (var j = 0; j < elements.length; j++) {
+		// 					var isValidated = (function () {
+		// 						var results, errors = 0;
+		// 						var elements = $this.find('[data-constraints]');
+		// 						var captcha = null;
+		// 						if (elements.length) {
+		// 							for (var j = 0; j < elements.length; j++) {
 
-										var $input = $(elements[j]);
-										if ((results = $input.regula('validate')).length) {
-											for (var k = 0; k < results.length; k++) {
-												errors++;
-												$input.siblings(".form-validation").text(results[k].message).parent().addClass("has-error");
-											}
-										} else {
-											$input.siblings(".form-validation").text("").parent().removeClass("has-error")
-										}
-									}
+		// 								var $input = $(elements[j]);
+		// 								if ((results = $input.regula('validate')).length) {
+		// 									for (var k = 0; k < results.length; k++) {
+		// 										errors++;
+		// 										$input.siblings(".form-validation").text(results[k].message).parent().addClass("has-error");
+		// 									}
+		// 								} else {
+		// 									$input.siblings(".form-validation").text("").parent().removeClass("has-error")
+		// 								}
+		// 							}
 
-									if (captcha) {
-										if (captcha.length) {
-											return validateReCaptcha(captcha) && errors === 0
-										}
-									}
+		// 							if (captcha) {
+		// 								if (captcha.length) {
+		// 									return validateReCaptcha(captcha) && errors === 0
+		// 								}
+		// 							}
 
-									return errors === 0;
-								}
-								return true;
-							})();
+		// 							return errors === 0;
+		// 						}
+		// 						return true;
+		// 					})();
 
-							// Stop request if builder or inputs are invalide
-							if (isNoviBuilder || !isValidated)
-								return false;
+		// 					// Stop request if builder or inputs are invalide
+		// 					if (isNoviBuilder || !isValidated)
+		// 						return false;
 
-							$output.html('Submitting...').addClass('active');
-						}
-					});
+		// 					$output.html('Submitting...').addClass('active');
+		// 				}
+		// 			});
 
-					return false;
-				}, $mailchimpItem, $email ));
-			}
-		}
+		// 			return false;
+		// 		}, $mailchimpItem, $email ));
+		// 	}
+		// }
 
 		// Campaign Monitor ajax subscription
-		if (plugins.campaignMonitor.length) {
-			for (i = 0; i < plugins.campaignMonitor.length; i++) {
-				var $campaignItem = $(plugins.campaignMonitor[i]);
+		// if (plugins.campaignMonitor.length) {
+		// 	for (i = 0; i < plugins.campaignMonitor.length; i++) {
+		// 		var $campaignItem = $(plugins.campaignMonitor[i]);
 
-				$campaignItem.on('submit', $.proxy(function (e) {
-					var data = {},
-						url = this.attr('action'),
-						dataArray = this.serializeArray(),
-						$output = $("#" + plugins.campaignMonitor.attr("data-form-output")),
-						$this = $(this);
+		// 		$campaignItem.on('submit', $.proxy(function (e) {
+		// 			var data = {},
+		// 				url = this.attr('action'),
+		// 				dataArray = this.serializeArray(),
+		// 				$output = $("#" + plugins.campaignMonitor.attr("data-form-output")),
+		// 				$this = $(this);
 
-					for (i = 0; i < dataArray.length; i++) {
-						data[dataArray[i].name] = dataArray[i].value;
-					}
+		// 			for (i = 0; i < dataArray.length; i++) {
+		// 				data[dataArray[i].name] = dataArray[i].value;
+		// 			}
 
-					$.ajax({
-						data: data,
-						url: url,
-						dataType: 'jsonp',
-						error: function (resp, text) {
-							$output.html('Server error: ' + text);
+		// 			$.ajax({
+		// 				data: data,
+		// 				url: url,
+		// 				dataType: 'jsonp',
+		// 				error: function (resp, text) {
+		// 					$output.html('Server error: ' + text);
 
-							setTimeout(function () {
-								$output.removeClass("active");
-							}, 4000);
-						},
-						success: function (resp) {
-							$output.html(resp.Message).addClass('active');
+		// 					setTimeout(function () {
+		// 						$output.removeClass("active");
+		// 					}, 4000);
+		// 				},
+		// 				success: function (resp) {
+		// 					$output.html(resp.Message).addClass('active');
 
-							setTimeout(function () {
-								$output.removeClass("active");
-							}, 6000);
-						},
-						beforeSend: function (data) {
-							// Stop request if builder or inputs are invalide
-							if (isNoviBuilder || !isValidated($this.find('[data-constraints]')))
-								return false;
+		// 					setTimeout(function () {
+		// 						$output.removeClass("active");
+		// 					}, 6000);
+		// 				},
+		// 				beforeSend: function (data) {
+		// 					// Stop request if builder or inputs are invalide
+		// 					if (isNoviBuilder || !isValidated($this.find('[data-constraints]')))
+		// 						return false;
 
-							$output.html('Submitting...').addClass('active');
-						}
-					});
+		// 					$output.html('Submitting...').addClass('active');
+		// 				}
+		// 			});
 
-					// Clear inputs after submit
-					var inputs = $this[0].getElementsByTagName('input');
-					for (var i = 0; i < inputs.length; i++) {
-						inputs[i].value = '';
-						var label = document.querySelector( '[for="'+ inputs[i].getAttribute( 'id' ) +'"]' );
-						if( label ) label.classList.remove( 'focus', 'not-empty' );
-					}
+		// 			// Clear inputs after submit
+		// 			var inputs = $this[0].getElementsByTagName('input');
+		// 			for (var i = 0; i < inputs.length; i++) {
+		// 				inputs[i].value = '';
+		// 				var label = document.querySelector( '[for="'+ inputs[i].getAttribute( 'id' ) +'"]' );
+		// 				if( label ) label.classList.remove( 'focus', 'not-empty' );
+		// 			}
 
-					return false;
-				}, $campaignItem));
-			}
-		}
+		// 			return false;
+		// 		}, $campaignItem));
+		// 	}
+		// }
 
-		/**
-		 * Google ReCaptcha
-		 * @description Enables Google ReCaptcha
-		 */
-		if (plugins.captcha.length) {
-			var i;
-			$.getScript("//www.google.com/recaptcha/api.js?onload=onloadCaptchaCallback&render=explicit&hl=en");
-		}
+		// /**
+		//  * Google ReCaptcha
+		//  * @description Enables Google ReCaptcha
+		//  */
+		// if (plugins.captcha.length) {
+		// 	var i;
+		// 	$.getScript("//www.google.com/recaptcha/api.js?onload=onloadCaptchaCallback&render=explicit&hl=en");
+		// }
 
-		/**
-		 * RD Mailform
-		 * @version      3.2.0
-		 */
-		if (plugins.rdMailForm.length) {
-			var i, j, k,
-				msg = {
-					'MF000': 'Successfully sent!',
-					'MF001': 'Recipients are not set!',
-					'MF002': 'Form will not work locally!',
-					'MF003': 'Please, define email field in your form!',
-					'MF004': 'Please, define type of your form!',
-					'MF254': 'Something went wrong with PHPMailer!',
-					'MF255': 'There was an error submitting the message.'
-				};
+		// /**
+		//  * RD Mailform
+		//  * @version      3.2.0
+		//  */
+		// if (plugins.rdMailForm.length) {
+		// 	var i, j, k,
+		// 		msg = {
+		// 			'MF000': 'Successfully sent!',
+		// 			'MF001': 'Recipients are not set!',
+		// 			'MF002': 'Form will not work locally!',
+		// 			'MF003': 'Please, define email field in your form!',
+		// 			'MF004': 'Please, define type of your form!',
+		// 			'MF254': 'Something went wrong with PHPMailer!',
+		// 			'MF255': 'There was an error submitting the message.'
+		// 		};
 
-			for (i = 0; i < plugins.rdMailForm.length; i++) {
-				var $form = $(plugins.rdMailForm[i]),
-					formHasCaptcha = false;
+		// 	for (i = 0; i < plugins.rdMailForm.length; i++) {
+		// 		var $form = $(plugins.rdMailForm[i]),
+		// 			formHasCaptcha = false;
 
-				$form.attr('novalidate', 'novalidate').ajaxForm({
-					data: {
-						"form-type": $form.attr("data-form-type") || "contact",
-						"counter": i
-					},
-					beforeSubmit: function (arr, $form, options) {
-						if (isNoviBuilder)
-							return;
+		// 		$form.attr('novalidate', 'novalidate').ajaxForm({
+		// 			data: {
+		// 				"form-type": $form.attr("data-form-type") || "contact",
+		// 				"counter": i
+		// 			},
+		// 			beforeSubmit: function (arr, $form, options) {
+		// 				if (isNoviBuilder)
+		// 					return;
 
-						var form = $(plugins.rdMailForm[this.extraData.counter]),
-							inputs = form.find("[data-constraints]"),
-							output = $("#" + form.attr("data-form-output")),
-							captcha = form.find('.recaptcha'),
-							captchaFlag = true;
+		// 				var form = $(plugins.rdMailForm[this.extraData.counter]),
+		// 					inputs = form.find("[data-constraints]"),
+		// 					output = $("#" + form.attr("data-form-output")),
+		// 					captcha = form.find('.recaptcha'),
+		// 					captchaFlag = true;
 
-						output.removeClass("active error success");
+		// 				output.removeClass("active error success");
 
-						if (isValidated(inputs, captcha)) {
+		// 				if (isValidated(inputs, captcha)) {
 
-							// veify reCaptcha
-							if (captcha.length) {
-								var captchaToken = captcha.find('.g-recaptcha-response').val(),
-									captchaMsg = {
-										'CPT001': 'Please, setup you "site key" and "secret key" of reCaptcha',
-										'CPT002': 'Something wrong with google reCaptcha'
-									};
+		// 					// veify reCaptcha
+		// 					if (captcha.length) {
+		// 						var captchaToken = captcha.find('.g-recaptcha-response').val(),
+		// 							captchaMsg = {
+		// 								'CPT001': 'Please, setup you "site key" and "secret key" of reCaptcha',
+		// 								'CPT002': 'Something wrong with google reCaptcha'
+		// 							};
 
-								formHasCaptcha = true;
+		// 						formHasCaptcha = true;
 
-								$.ajax({
-									method: "POST",
-									url: "bat/reCaptcha.php",
-									data: {'g-recaptcha-response': captchaToken},
-									async: false
-								})
-									.done(function (responceCode) {
-										if (responceCode !== 'CPT000') {
-											if (output.hasClass("snackbars")) {
-												output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + captchaMsg[responceCode] + '</span></p>')
+		// 						$.ajax({
+		// 							method: "POST",
+		// 							url: "bat/reCaptcha.php",
+		// 							data: {'g-recaptcha-response': captchaToken},
+		// 							async: false
+		// 						})
+		// 							.done(function (responceCode) {
+		// 								if (responceCode !== 'CPT000') {
+		// 									if (output.hasClass("snackbars")) {
+		// 										output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + captchaMsg[responceCode] + '</span></p>')
 
-												setTimeout(function () {
-													output.removeClass("active");
-												}, 3500);
+		// 										setTimeout(function () {
+		// 											output.removeClass("active");
+		// 										}, 3500);
 
-												captchaFlag = false;
-											} else {
-												output.html(captchaMsg[responceCode]);
-											}
+		// 										captchaFlag = false;
+		// 									} else {
+		// 										output.html(captchaMsg[responceCode]);
+		// 									}
 
-											output.addClass("active");
-										}
-									});
-							}
+		// 									output.addClass("active");
+		// 								}
+		// 							});
+		// 					}
 
-							if (!captchaFlag) {
-								return false;
-							}
+		// 					if (!captchaFlag) {
+		// 						return false;
+		// 					}
 
-							form.addClass('form-in-process');
+		// 					form.addClass('form-in-process');
 
-							if (output.hasClass("snackbars")) {
-								output.html('<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Sending</span></p>');
-								output.addClass("active");
-							}
-						} else {
-							return false;
-						}
-					},
-					error: function (result) {
-						if (isNoviBuilder)
-							return;
+		// 					if (output.hasClass("snackbars")) {
+		// 						output.html('<p><span class="icon text-middle fa fa-circle-o-notch fa-spin icon-xxs"></span><span>Sending</span></p>');
+		// 						output.addClass("active");
+		// 					}
+		// 				} else {
+		// 					return false;
+		// 				}
+		// 			},
+		// 			error: function (result) {
+		// 				if (isNoviBuilder)
+		// 					return;
 
-						var output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
-							form = $(plugins.rdMailForm[this.extraData.counter]);
+		// 				var output = $("#" + $(plugins.rdMailForm[this.extraData.counter]).attr("data-form-output")),
+		// 					form = $(plugins.rdMailForm[this.extraData.counter]);
 
-						output.text(msg[result]);
-						form.removeClass('form-in-process');
+		// 				output.text(msg[result]);
+		// 				form.removeClass('form-in-process');
 
-						if (formHasCaptcha) {
-							grecaptcha.reset();
-						}
-					},
-					success: function (result) {
-						if (isNoviBuilder)
-							return;
+		// 				if (formHasCaptcha) {
+		// 					grecaptcha.reset();
+		// 				}
+		// 			},
+		// 			success: function (result) {
+		// 				if (isNoviBuilder)
+		// 					return;
 
-						var form = $(plugins.rdMailForm[this.extraData.counter]),
-							output = $("#" + form.attr("data-form-output")),
-							select = form.find('select');
+		// 				var form = $(plugins.rdMailForm[this.extraData.counter]),
+		// 					output = $("#" + form.attr("data-form-output")),
+		// 					select = form.find('select');
 
-						form
-							.addClass('success')
-							.removeClass('form-in-process');
+		// 				form
+		// 					.addClass('success')
+		// 					.removeClass('form-in-process');
 
-						if (formHasCaptcha) {
-							grecaptcha.reset();
-						}
+		// 				if (formHasCaptcha) {
+		// 					grecaptcha.reset();
+		// 				}
 
-						result = result.length === 5 ? result : 'MF255';
-						output.text(msg[result]);
+		// 				result = result.length === 5 ? result : 'MF255';
+		// 				output.text(msg[result]);
 
-						if (result === "MF000") {
-							if (output.hasClass("snackbars")) {
-								output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + msg[result] + '</span></p>');
-							} else {
-								output.addClass("active success");
-							}
-						} else {
-							if (output.hasClass("snackbars")) {
-								output.html(' <p class="snackbars-left"><span class="icon icon-xxs mdi mdi-alert-outline text-middle"></span><span>' + msg[result] + '</span></p>');
-							} else {
-								output.addClass("active error");
-							}
-						}
+		// 				if (result === "MF000") {
+		// 					if (output.hasClass("snackbars")) {
+		// 						output.html('<p><span class="icon text-middle mdi mdi-check icon-xxs"></span><span>' + msg[result] + '</span></p>');
+		// 					} else {
+		// 						output.addClass("active success");
+		// 					}
+		// 				} else {
+		// 					if (output.hasClass("snackbars")) {
+		// 						output.html(' <p class="snackbars-left"><span class="icon icon-xxs mdi mdi-alert-outline text-middle"></span><span>' + msg[result] + '</span></p>');
+		// 					} else {
+		// 						output.addClass("active error");
+		// 					}
+		// 				}
 
-						form.clearForm();
+		// 				form.clearForm();
 
-						if (select.length) {
-							select.select2("val", "");
-						}
+		// 				if (select.length) {
+		// 					select.select2("val", "");
+		// 				}
 
-						form.find('input, textarea').trigger('blur');
+		// 				form.find('input, textarea').trigger('blur');
 
-						setTimeout(function () {
-							output.removeClass("active error success");
-							form.removeClass('success');
-						}, 3500);
-					}
-				});
+		// 				setTimeout(function () {
+		// 					output.removeClass("active error success");
+		// 					form.removeClass('success');
+		// 				}, 3500);
+		// 			}
+		// 		});
 
-			}
-		}
+		// 	}
+		// }
 
 		/**
 		 * Custom Toggles

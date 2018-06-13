@@ -115,9 +115,9 @@
 				$.get(app.config.ajax.ipInfo, function(data) {
 					$('[name="phone"]').val(data.country_calling_code);
 				});
-				$('[name="submit"]').on('click',function(event) {
-					app.do.registration();
-			   });
+				// $('[name="submit"]').on('click',function(event) {
+				// 	app.do.registration();
+			 //   });
 			},
 			run:function() {
 			    var route=window.location.pathname.split("/");
