@@ -52,4 +52,14 @@ class v01 extends Controller
       echo json_encode(array('success' =>true));
     }
   }
+
+  public function requestCall(){
+    $sql ="INSERT INTO requestCall(phone_number) VALUES(:phone_number)";
+    $query = $this->db->prepare($sql);
+    $query->bindParam(':phone_number',$_POST['phone_number']);
+    if ($query->execute()) {
+      echo json_encode(array('success' =>true));
+    }
+  }
+  
 }

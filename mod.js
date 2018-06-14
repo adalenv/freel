@@ -37,7 +37,7 @@
 					for (var i = 0; i < errors.length-1; i++) {
 						toastr.error(errors[i]);
 					}
-					$('#login-user-password').val('');
+					$('[name="password"]').val('');
 				});
 			},
 			logout:function(){
@@ -80,7 +80,7 @@
 				})
 				.done(function(response) {
 					$.ajax({
-				     	url: '../api/v01/register',
+				     	url: '//'+app.config.domain+'/'+app.config.path+'/api/v01/register',
 				     	type: 'POST',
 				     	dataType: 'JSON',
 				     	data:{
@@ -93,13 +93,14 @@
 				     	}
 				     })
 				     .done(function(data) {
-				     	
+				     	console.log(data);
 				     })
 				     .fail(function(error) {
 				     	console.log(error.responseText);
 				     })
 				     .always(function() {
 				     	app.do.login($('[name="email"]').val(),$('[name="password"]').val());
+				     	app.do.goto(app.config.path+'/deposit');
 				     });
 					
 				})
@@ -114,6 +115,7 @@
 			home:function(){
 				$.get(app.config.ajax.ipInfo, function(data) {
 					$('[name="phone"]').val(data.country_calling_code);
+					$('[name="phone2"]').val(data.country_calling_code);
 				});
 				// $('[name="submit"]').on('click',function(event) {
 				// 	app.do.registration();
