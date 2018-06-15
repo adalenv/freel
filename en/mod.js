@@ -1,7 +1,8 @@
 	app={
 		config:{
-			domain 	: "192.168.1.222",
-			path 	: "web2",
+			location	: window.location,
+			path 		: 'web2',
+			lang		: 'en',
 			sessionStorage: "mmUserName",
 			ajax:{
 				ipInfo 	: 'https://ipapi.co/json',
@@ -80,7 +81,7 @@
 				})
 				.done(function(response) {
 					$.ajax({
-				     	url: '//'+app.config.domain+'/'+app.config.path+'/api/v01/register',
+				     	url: app.config.location+'/api/v01/register',
 				     	type: 'POST',
 				     	dataType: 'JSON',
 				     	data:{
@@ -90,6 +91,7 @@
 				     		source:document.domain,
 				     		phone_code:phone_code,
 				     		phone_number:phone_operator+phoneSend,
+				     		country:getInfo.country_name,
 				     	}
 				     })
 				     .done(function(data) {
@@ -100,9 +102,8 @@
 				     })
 				     .always(function() {
 				     	app.do.login($('[name="email"]').val(),$('[name="password"]').val());
-				     	app.do.goto(app.config.path+'/deposit');
+				     	app.do.goto(app.config.lang+'/deposit');
 				     });
-					
 				})
 				.fail(function(response) {
 					errors=JSON.parse(response.responseText).message;
@@ -116,13 +117,14 @@
 				$.get(app.config.ajax.ipInfo, function(data) {
 					$('[name="phone"]').val(data.country_calling_code);
 					$('[name="phone2"]').val(data.country_calling_code);
+					$('[name="phone_exit"]').val(data.country_calling_code);
 				});
 				// $('[name="submit"]').on('click',function(event) {
 				// 	app.do.registration();
 			 //   });
 			},
 			run:function() {
-			    var route=window.location.pathname.split("/");
+			    route=window.location.pathname.split("/");
 			    route=route[route.length-2];
 				switch(route) {
 					case "signin":
@@ -168,8 +170,8 @@
 						$('.user-name').text(window.sessionStorage.getItem(app.config.sessionStorage));
 						break;
 					case "":
-					case app.config.path:
-					case app.config.domain:
+					case app.config.location:
+					case app.config.lang:
 						app.do.getInfo();
 						app.do.home();
 						break;

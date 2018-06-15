@@ -39,13 +39,14 @@ class v01 extends Controller
       echo json_encode(array('success' =>false));
       return;
     }
-    $sql ="INSERT INTO leads_full(first_name,last_name,phone_code,phone_number,source,email) 
-                      VALUES(:first_name,:last_name,:phone_code,:phone_number,:source,:email)";
+    $sql ="INSERT INTO leads_full(first_name,last_name,phone_code,phone_number,source,email,country) 
+                      VALUES(:first_name,:last_name,:phone_code,:phone_number,:source,:email,:country)";
     $query = $this->db->prepare($sql);
     $query->bindParam(':first_name',$_POST['first_name']);
     $query->bindParam(':last_name',$_POST['last_name']);
     $query->bindParam(':phone_code',$_POST['phone_code']);
     $query->bindParam(':phone_number',$_POST['phone_number']);
+    $query->bindParam(':country',$_POST['country']);
     $query->bindParam(':email',$_POST['email']);
     $query->bindParam(':source',$_POST['source']);
     if ($query->execute()) {
@@ -56,6 +57,16 @@ class v01 extends Controller
   public function requestCall(){
     $sql ="INSERT INTO requestCall(phone_number) VALUES(:phone_number)";
     $query = $this->db->prepare($sql);
+    $query->bindParam(':phone_number',$_POST['phone_number']);
+    if ($query->execute()) {
+      echo json_encode(array('success' =>true));
+    }
+  }
+
+  public function dontMiss(){
+    $sql ="INSERT INTO dont_miss(name,phone_number) VALUES(:name,:phone_number)";
+    $query = $this->db->prepare($sql);
+    $query->bindParam(':name',$_POST['name']);
     $query->bindParam(':phone_number',$_POST['phone_number']);
     if ($query->execute()) {
       echo json_encode(array('success' =>true));
