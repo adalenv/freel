@@ -58,7 +58,7 @@
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-facebook" href="index.html#"></a></li>
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-twitter" href="index.html#"></a></li>
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-google-plus" href="index.html#"></a></li> -->
-                  </ul><a class="btn btn-sm btn-primary btn-effect-ujarak" href="index.html#">sign up</a>
+                  </ul><!-- <a class="btn btn-sm btn-primary btn-effect-ujarak" href="index.html#">sign up</a> -->
                   <div class="widget widget-people block-hidden first shown">
                       <div class="widget-inner">
                           <div class="content">
@@ -74,7 +74,13 @@
                           </div>
                       </div>
                   </div>
-                 <!--  <div class="rd-navbar-nav-wrap__shop"><a class="icon novi-icon fl-bigmug-line-shopping202 link-primary" href="index.html#">(2)</a></div> -->
+                  <div class="btn-group" style="cursor: pointer;margin-left:0 !important"><img src="http://www.countryflags.io/GB/flat/64.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <ul class="dropdown-menu" style="text-align: center;">
+                        <li><a href="../de"><img src="http://www.countryflags.io/DE/flat/64.png" alt=""></a></li>
+                        <li><a href="../it"><img src="http://www.countryflags.io/IT/flat/64.png" alt=""></a></li>
+                        <li><a href="../es"><img src="http://www.countryflags.io/ES/flat/64.png" alt=""></a></li>
+                      </ul>
+                    </div>
                 </div>
               </div>
             </div>
@@ -109,11 +115,14 @@
                   <div class="col-sm-12">
                     <h2 style="text-align:center;margin-bottom: 10px;">Join Platinums</h2>
 
-                    <video autoplay="" id="video_c" style="border: 3px solid #cacaca;border-radius: 5px;width: 100%" width="707" sizes="(max-width: 479px) 100vw, (max-width: 767px) 80vw, 750px" class="dashboard-image lazyload">
+                    <!-- <video autoplay="" id="video_c" style="border: 3px solid #cacaca;border-radius: 5px;width: 100%" width="707" sizes="(max-width: 479px) 100vw, (max-width: 767px) 80vw, 750px" class="dashboard-image lazyload">
                       <source src="http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1280_10MG.mp4" type="video/mp4">
                     Your browser does not support the video tag.
-                    </video>
+                    </video> -->
+                    <img id="video_c" style="border: 3px solid #cacaca;border-radius: 5px;width: 100%;    opacity: 0.76;" width="707" src="../glob/1.jpg">
+                   
                   </div>
+                  
                   <div style="margin:15px" class="col-sm-12">
                     
                     <p>Ride The Wave of bitcoin And you could earn up to $13,000 In Exactly 24 Hours</p>
@@ -1236,6 +1245,13 @@ function dontMiss(){
     .always(function() {
     });
 }
+
+
+
+
+
+
+ document.getElementById("video_c").src = '../glob/'+rand(1,4)+'.jpg';
 </script>
 
 
