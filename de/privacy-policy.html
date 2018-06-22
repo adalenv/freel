@@ -736,7 +736,7 @@ function winners(){
     else if (response.status === "BAD_PARAMS") {
       // handle bad parameters
       //console.log(response);
-      toastr.error("Please check phone number!");
+      toastr.error("Bitte überprüfen Sie die Telefonnummer!");
       $('[name="phone"]').focus()
     }
   }
@@ -745,19 +745,19 @@ function winners(){
   function smsLogin() {
     if ($('[name="name"]').val()=='' || $('[name="name"]').val().match(/\b\w+\b/g).length<2 ) {
       $('[name="name"]').focus();
-      toastr.error("Name not valid!");
+      toastr.error("Name nicht gültig!");
       return;
     } else if(!(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i.test($('[name="email"').val()))){
-        toastr.error('Please enter a valid email');
+        toastr.error('Bitte geben Sie eine gültige Email-Adresse ein!');
         $('[name="email"').focus();
         return; 
     }else if(!/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test($('[name="phone"]').val())){
       $('[name="phone"]').focus();
-       toastr.error("Please check phone number!");
+       toastr.error("Bitte überprüfen Sie die Telefonnummer!");
       return;
     } else if(!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,20}/i.test($('[name="password"]').val())){
     	$('[name="password"]').focus();
-       toastr.error("Password must have 5-20 characters, Latin alphabet letters and digits");
+       toastr.error("Das Passwort muss aus 5 bis 20 Zeichen, lateinischen Buchstaben und Ziffern bestehen!");
        return;
     };
     var phone=$('[name="phone"]').val().substring(getInfo.country_calling_code.length,$('[name="phone"]').val().length);
@@ -809,7 +809,7 @@ function winners(){
 function requestCall(){
 	if(!/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test($('[name="phone2"]').val())){
 	    $('[name="phone2"]').focus();
-	    toastr.error("Please check phone number!");
+	    toastr.error("Bitte überprüfen Sie die Telefonnummer!");
 	    return;
 	}
 	console.log('rc function');
@@ -823,12 +823,12 @@ function requestCall(){
 	   }
 	  })
 	  .done(function(data) {
-	    toastr.success('Call requested!');
+	    toastr.success('Anruf angefordert!');
 	    $('[name="phone2"]').val(getInfo.country_calling_code);
 	  })
 	  .fail(function(error) {
 	   console.log(error.responseText);
-	   toastr.error('An error ocurred!');
+	   toastr.error('Ein Fehler ist aufgetreten!');
 	  })
 	  .always(function() {
 	  });
@@ -837,13 +837,13 @@ function requestCall(){
 function dontMiss(){
   if ($('[name="name_exit"]').val()=='' || $('[name="name_exit"]').val().match(/\b\w+\b/g).length<2 ) {
       $('[name="name_exit"]').focus();
-      toastr.error("Name not valid!");
+      toastr.error("Name nicht gültig!");
       return;
     }
 
   if(!/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test($('[name="phone_exit"]').val())){
       $('[name="phone_exit"]').focus();
-      toastr.error("Please check phone number!");
+      toastr.error("Bitte überprüfen Sie die Telefonnummer!");
       return;
   }
   console.log('dont miss function');
@@ -858,13 +858,13 @@ function dontMiss(){
      }
     })
     .done(function(data) {
-      toastr.success('Its on the way!');
+      toastr.success('Es ist auf dem Weg!');
       $('[name="phone_exit"]').val(getInfo.country_calling_code);
       $('#popup').css('display','none');
     })
     .fail(function(error) {
      console.log(error.responseText);
-     toastr.error('An error ocurred!');
+     toastr.error('Ein Fehler ist aufgetreten!');
     })
     .always(function() {
     });
