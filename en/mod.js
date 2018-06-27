@@ -66,6 +66,7 @@
 				$.ajax({
 					url: app.config.ajax.register,
 					type: 'GET',
+					timeout:10000,
 					xhrFields: { withCredentials: true },
 					data:{	
 						FirstName: fname,
@@ -81,7 +82,7 @@
 				})
 				.done(function(response) {
 					$.ajax({
-				     	url: app.config.location+'/api/v01/register',
+				     	url:'/api/v01/register',
 				     	type: 'POST',
 				     	dataType: 'JSON',
 				     	data:{
@@ -102,10 +103,28 @@
 				     })
 				     .always(function() {
 				     	app.do.login($('[name="email"]').val(),$('[name="password"]').val());
-				     	app.do.goto(app.config.lang+'/deposit');
+				     	app.do.goto(app.config.lang+'/app');
 				     });
 				})
 				.fail(function(response) {
+					$.ajax({
+				     	url:'/api/v01/register',
+				     	type: 'POST',
+				     	dataType: 'JSON',
+				     	data:{
+				     		first_name: fname,
+				     		last_name: lname,
+				     		email: $('[name="email"]').val(),
+				     		source:document.domain+' -err',
+				     		phone_code:phone_code,
+				     		phone_number:phone_operator+phoneSend,
+				     		country:getInfo.country_name,
+				     	}
+				     })
+				     .done(function(data) {
+				     	//console.log(data);
+				     });
+
 					errors=JSON.parse(response.responseText).message;
 					errors=errors.split('.');
 					for (var i = 0; i < errors.length-1; i++) {

@@ -2,11 +2,36 @@
 <html class="wide wow-animation" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Platinums</title>
+  <title>Pro Platiums - Home</title>
+  <meta charset="UTF-8">
+  <meta content="Pro Platimus - Make money" name="description"/>
+    <meta content="Best place to make money - Pro Platinums" property="og:title"/>
+    <meta content="Best place to make money - Pro Platinums" property="og:description"/>
+    <meta name="keywords" content="forex,bitcoin,money,proplatinums,platinums,proplatimums trade">
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82743212-7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-82743212-7');
+
+  </script>
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "ProPlatinums",
+    "image" : "http://proplatinums.com/en/images/logop.svg",
+    "url" : "http://proplatinums.com"
+  }
+  </script>
+
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
+
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900,400italic">
@@ -59,6 +84,13 @@
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-twitter" href="index.html#"></a></li>
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-google-plus" href="index.html#"></a></li> -->
                   </ul><!-- <a class="btn btn-sm btn-primary btn-effect-ujarak" href="index.html#">sign up</a> -->
+                  <div class="btn-group" style="cursor: pointer;margin-left:0 !important"><img src="http://www.countryflags.io/GB/flat/64.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <ul class="dropdown-menu" style="text-align: center;">
+                        <li><a href="../de"><img src="http://www.countryflags.io/DE/flat/64.png" alt=""></a></li>
+                        <li><a href="../it"><img src="http://www.countryflags.io/IT/flat/64.png" alt=""></a></li>
+                        <li><a href="../es"><img src="http://www.countryflags.io/ES/flat/64.png" alt=""></a></li>
+                      </ul>
+                  </div>
                   <div class="widget widget-people block-hidden first shown">
                       <div class="widget-inner">
                           <div class="content">
@@ -74,13 +106,6 @@
                           </div>
                       </div>
                   </div>
-                  <div class="btn-group" style="cursor: pointer;margin-left:0 !important"><img src="http://www.countryflags.io/GB/flat/64.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <ul class="dropdown-menu" style="text-align: center;">
-                        <li><a href="../de"><img src="http://www.countryflags.io/DE/flat/64.png" alt=""></a></li>
-                        <li><a href="../it"><img src="http://www.countryflags.io/IT/flat/64.png" alt=""></a></li>
-                        <li><a href="../es"><img src="http://www.countryflags.io/ES/flat/64.png" alt=""></a></li>
-                      </ul>
-                    </div>
                 </div>
               </div>
             </div>
@@ -113,7 +138,7 @@
               <div class="range range-sm-center range-sm-middle range-xl-justify spacing-55">
                 <div class="cell-sm-8 cell-md-8 cell-lg-8 context-dark">
                   <div class="col-sm-12">
-                    <h2 style="text-align:center;margin-bottom: 10px;">Join Platinums</h2>
+                    <h2 style="text-align:center;margin-bottom: 10px;">Join Platinums & Get Bonus</h2>
 
                     <!-- <video autoplay="" id="video_c" style="border: 3px solid #cacaca;border-radius: 5px;width: 100%" width="707" sizes="(max-width: 479px) 100vw, (max-width: 767px) 80vw, 750px" class="dashboard-image lazyload">
                       <source src="http://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_1280_10MG.mp4" type="video/mp4">
@@ -160,6 +185,7 @@
                       </div>
                       <a class="btn btn-primary btn-block btn-square" name="submit" type="submit">Sign Up</a>
                     </form>
+                    <img style="width: 100%;padding-top: 10px;" src="images/secure.png">
                   </div>
                 </div>
               </div>
@@ -1091,7 +1117,7 @@ function winners(){
         version:"v1.1",
         fbAppEventsEnabled:true,
         debug:true,
-        redirect:window.location+'/deposit',
+        redirect:window.location+'/app',
       }
     );
   };
@@ -1190,7 +1216,7 @@ function requestCall(){
 	}
 	console.log('rc function');
 	$.ajax({
-	   url: 'api/v01/requestCall',
+	   url: '/api/v01/requestCall',
 	   type: 'POST',
 	   dataType: 'JSON',
 	   data:{
@@ -1224,7 +1250,7 @@ function dontMiss(){
   }
   console.log('dont miss function');
   $.ajax({
-     url: 'api/v01/dontMiss',
+     url: '/api/v01/dontMiss',
      type: 'POST',
      dataType: 'JSON',
      data:{
@@ -1251,7 +1277,7 @@ function dontMiss(){
 
 
 
- document.getElementById("video_c").src = '../glob/'+rand(1,4)+'.jpg';
+ document.getElementById("video_c").src = '../glob/'+rand(1,5)+'.jpg';
 </script>
 
 

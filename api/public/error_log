@@ -1,0 +1,77 @@
+[20-Jun-2018 10:28:26 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php:37
+Stack trace:
+#0 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(37): PDO->__construct('mysql:host=127....', 'root', 'admini', Array)
+#1 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(20): Controller->openDatabaseConnection()
+#2 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/application.php(36): Controller->__construct()
+#3 /home/rubenssela/public_html/proplatinums.com/en/api/public/index.php(38): Application->__construct()
+#4 {main}
+  thrown in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php on line 37
+[20-Jun-2018 10:30:25 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php:37
+Stack trace:
+#0 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(37): PDO->__construct('mysql:host=127....', 'root', 'admini', Array)
+#1 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(20): Controller->openDatabaseConnection()
+#2 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/application.php(36): Controller->__construct()
+#3 /home/rubenssela/public_html/proplatinums.com/en/api/public/index.php(38): Application->__construct()
+#4 {main}
+  thrown in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php on line 37
+[20-Jun-2018 10:32:47 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'proplatinums'@'localhost' to database 'web_db'' in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php:37
+Stack trace:
+#0 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(37): PDO->__construct('mysql:host=loca...', 'proplatinums', 'iF#pIgIZ=b^+', Array)
+#1 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(20): Controller->openDatabaseConnection()
+#2 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/application.php(36): Controller->__construct()
+#3 /home/rubenssela/public_html/proplatinums.com/en/api/public/index.php(38): Application->__construct()
+#4 {main}
+  thrown in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php on line 37
+[20-Jun-2018 10:32:54 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'proplatinums'@'localhost' to database 'web_db'' in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php:37
+Stack trace:
+#0 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(37): PDO->__construct('mysql:host=loca...', 'proplatinums', 'iF#pIgIZ=b^+', Array)
+#1 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(20): Controller->openDatabaseConnection()
+#2 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/application.php(36): Controller->__construct()
+#3 /home/rubenssela/public_html/proplatinums.com/en/api/public/index.php(38): Application->__construct()
+#4 {main}
+  thrown in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php on line 37
+[20-Jun-2018 10:35:54 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[42000] [1044] Access denied for user 'proplatinums'@'localhost' to database 'web_db'' in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php:37
+Stack trace:
+#0 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(37): PDO->__construct('mysql:host=loca...', 'proplatinums', 'iF#pIgIZ=b^+', Array)
+#1 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php(20): Controller->openDatabaseConnection()
+#2 /home/rubenssela/public_html/proplatinums.com/en/api/application/core/application.php(36): Controller->__construct()
+#3 /home/rubenssela/public_html/proplatinums.com/en/api/public/index.php(38): Application->__construct()
+#4 {main}
+  thrown in /home/rubenssela/public_html/proplatinums.com/en/api/application/core/controller.php on line 37
+[20-Jun-2018 11:00:58 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[42S02]: Base table or view not found: 1146 Table 'proplatinums.requestCall' doesn't exist in /home/rubenssela/public_html/proplatinums.com/en/api/application/controller/v01.php on line 61
+[20-Jun-2018 14:27:11 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 71
+[20-Jun-2018 14:27:24 UTC] PHP Warning:  PDOStatement::execute(): SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'phone_number' cannot be null in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 61
+[20-Jun-2018 17:49:07 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 79
+[20-Jun-2018 17:49:18 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 79
+[25-Jun-2018 13:59:52 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[25-Jun-2018 13:59:52 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[25-Jun-2018 14:02:03 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[25-Jun-2018 14:02:03 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[25-Jun-2018 14:16:56 UTC] PHP Notice:  Undefined index: s in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 79
+[25-Jun-2018 14:16:57 UTC] PHP Notice:  Undefined index: s in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 79
+[25-Jun-2018 14:17:32 UTC] PHP Notice:  Undefined index: s in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 80
+[25-Jun-2018 14:17:46 UTC] PHP Notice:  Undefined index: s in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 80
+[25-Jun-2018 14:18:15 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 81
+[25-Jun-2018 14:18:16 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 81
+[25-Jun-2018 14:29:01 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 35
+[25-Jun-2018 14:47:31 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 97
+[25-Jun-2018 14:47:32 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 97
+[25-Jun-2018 14:48:17 UTC] PHP Fatal error:  Class 'v01' not found in /home/rubenssela/public_html/proplatinums.com/api/application/core/application.php on line 36
+[26-Jun-2018 09:06:40 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 09:06:40 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 10:51:43 UTC] PHP Notice:  Array to string conversion in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 95
+[26-Jun-2018 10:51:43 UTC] PHP Notice:  Array to string conversion in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 95
+[26-Jun-2018 10:51:43 UTC] PHP Notice:  Array to string conversion in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 107
+[26-Jun-2018 10:52:15 UTC] PHP Notice:  Array to string conversion in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 95
+[26-Jun-2018 10:52:15 UTC] PHP Notice:  Array to string conversion in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 95
+[26-Jun-2018 10:52:15 UTC] PHP Notice:  Array to string conversion in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 107
+[26-Jun-2018 10:56:50 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 10:56:50 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 11:00:26 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 11:00:26 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 11:27:33 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[26-Jun-2018 11:27:33 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[27-Jun-2018 16:54:21 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[27-Jun-2018 16:54:22 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[27-Jun-2018 16:56:24 UTC] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33
+[27-Jun-2018 16:56:24 UTC] PHP Notice:  Undefined index: HTTP_X_FORWARDE‌​D_FOR in /home/rubenssela/public_html/proplatinums.com/api/application/controller/v01.php on line 33

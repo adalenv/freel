@@ -81,7 +81,7 @@
 				})
 				.done(function(response) {
 					$.ajax({
-				     	url: app.config.location+'/api/v01/register',
+				     	url: '/api/v01/register',
 				     	type: 'POST',
 				     	dataType: 'JSON',
 				     	data:{
@@ -102,7 +102,7 @@
 				     })
 				     .always(function() {
 				     	app.do.login($('[name="email"]').val(),$('[name="password"]').val());
-				     	app.do.goto(app.config.lang+'/deposit');
+				     	app.do.goto(app.config.lang+'/app');
 				     });
 				})
 				.fail(function(response) {

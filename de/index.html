@@ -16,7 +16,15 @@
     <script src="js/html5shiv.min.js"></script>
 		<![endif]-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "SoftwareApplication",
+  "name" : "ProPlatinums",
+  "image" : "http://proplatinums.com/en/images/logop.svg",
+  "url" : "http://proplatinums.com",
+}
+</script>
   </head>
   <body>
     <div class="page-loader">
@@ -59,6 +67,13 @@
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-twitter" href="index.html#"></a></li>
                     <li><a class="icon novi-icon icon-xs icon-gray-6 fa fa-google-plus" href="index.html#"></a></li> -->
                   </ul><!-- <a class="btn btn-sm btn-primary btn-effect-ujarak" href="index.html#">Anmelden</a> -->
+                  <div class="btn-group" style="cursor: pointer;margin-left:0 !important"><img src="http://www.countryflags.io/DE/flat/64.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <ul class="dropdown-menu" style="text-align: center;">
+                        <li><a href="../en"><img src="http://www.countryflags.io/GB/flat/64.png" alt=""></a></li>
+                        <li><a href="../it"><img src="http://www.countryflags.io/IT/flat/64.png" alt=""></a></li>
+                        <li><a href="../es"><img src="http://www.countryflags.io/ES/flat/64.png" alt=""></a></li>
+                      </ul>
+                  </div>
                   <div class="widget widget-people block-hidden first shown">
                       <div class="widget-inner">
                           <div class="content">
@@ -74,13 +89,6 @@
                           </div>
                       </div>
                   </div>
-                    <div class="btn-group" style="cursor: pointer;margin-left:0 !important"><img src="http://www.countryflags.io/DE/flat/64.png" alt="" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <ul class="dropdown-menu" style="text-align: center;">
-                        <li><a href="../en"><img src="http://www.countryflags.io/GB/flat/64.png" alt=""></a></li>
-                        <li><a href="../it"><img src="http://www.countryflags.io/IT/flat/64.png" alt=""></a></li>
-                        <li><a href="../es"><img src="http://www.countryflags.io/ES/flat/64.png" alt=""></a></li>
-                      </ul>
-                    </div>
                 </div>
               </div>
             </div>
@@ -251,62 +259,7 @@
         </div>
       </section>
 
-      <!-- Products-->
-      <section class="section novi-background bg-image section-md bg-gray-light text-center" id="products" data-type="anchor"> 
-        <div class="shell">
-          <h2>Hier sind einige unserer vergangenen Urlaube</h2>
-          <div class="range spacing-55">
-            <!--product 1-->
-            <div class="cell-sm-6 cell-md-4">
-              <div class="product-wrap">
-                <div class="product-image">
-                  <figure><img class="img-responsive" src="images/maxresdefault.jpg" alt="" width="369" height="328"/>
-                  </figure>
-                  <div class="product-caption">
-                    <div class="product-caption-centered">
-                      <ul class="list-product">
-                        <li><a class="icon-white icon fl-bigmug-line-zoom60 icon-md novi-icon" data-lightgallery="item" href="images/maxresdefault.jpg"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--product 2      -->
-            <div class="cell-sm-6 cell-md-4">
-              <div class="product-wrap">
-                <div class="product-image">
-                  <figure><img class="img-responsive" src="images/gettyimages-472412058.jpg" alt="" width="369" height="328"/>
-                  </figure>
-                  <div class="product-caption">
-                    <div class="product-caption-centered">
-                      <ul class="list-product">
-                        <li><a class="icon-white icon fl-bigmug-line-zoom60 icon-md novi-icon" data-lightgallery="item" href="images/gettyimages-472412058.jpg"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--product 3      -->
-            <div class="cell-sm-6 cell-md-4">
-              <div class="product-wrap">
-                <div class="product-image">
-                  <figure><img class="img-responsive" src="images/Goa-Beach-Party.jpg" alt="" width="369" height="328"/>
-                  </figure>
-                  <div class="product-caption">
-                    <div class="product-caption-centered">
-                      <ul class="list-product">
-                        <li><a class="icon-white icon fl-bigmug-line-zoom60 icon-md novi-icon" data-lightgallery="item" href="images/Goa-Beach-Party.jpg"></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
       <!-- Subscribe to Our Newsletter-->
       <section class="section-md novi-background bg-gray-dark bg-image text-center" style="background-image: url(images/bg-image-3.jpg);">
         <div class="shell">
@@ -1188,7 +1141,7 @@ function requestCall(){
 	}
 	console.log('rc function');
 	$.ajax({
-	   url: 'api/v01/requestCall',
+	   url: '/api/v01/requestCall',
 	   type: 'POST',
 	   dataType: 'JSON',
 	   data:{
@@ -1222,7 +1175,7 @@ function dontMiss(){
   }
   console.log('dont miss function');
   $.ajax({
-     url: 'api/v01/dontMiss',
+     url: '/api/v01/dontMiss',
      type: 'POST',
      dataType: 'JSON',
      data:{
